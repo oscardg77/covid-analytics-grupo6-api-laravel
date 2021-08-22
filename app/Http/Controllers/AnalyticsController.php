@@ -35,9 +35,10 @@ class AnalyticsController extends Controller
          $fechaArray = explode('-', $fecha);
 
          $entries = Entry::with('country')
-                             ->where('day', '=', $fechaArray[0])
-                             ->where('month', '=', $fechaArray[1])
-                             ->where('year', '=', $fechaArray[2])
+                             ->where('day', '=', $fechaDay[0])
+                             ->where('month', '=', $fechaMonth[1])
+                             ->where('year', '=', $fechaYear[2])
+                             ->where('entries', '=', $entries)
                              ->get();
 
          return ['data' => $entries];
